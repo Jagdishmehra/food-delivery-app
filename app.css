@@ -1,0 +1,72 @@
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: solid black;
+}
+
+.logo {
+    width: 200px;
+}
+
+.list-item>ul {
+    list-style: none;
+    display: flex;
+    padding: 10px 10px;
+    font-size: 20px;
+}
+
+.list-item>ul :hover {
+    color: rgb(183, 216, 246);
+    cursor: pointer;
+}
+
+.list-item>ul>li {
+    padding: 10px;
+    margin: 10px;
+}
+
+/* restaurant container*/
+
+.search{
+    padding: 10px;
+}
+
+.res-card{
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    background-color: rgb(230, 228, 228);
+    
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+.res-card:hover{
+    border: solid black;
+
+}
+
+.res-logo{
+    width: 100%;
+    height: 150px; 
+}
+
+.top-btn{
+    margin: 10px;
+}
+.shimmer-card{
+    height: 300px;
+    width: 200px;
+    margin: 10px;
+    background-color:rgb(230, 228, 228); ;
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+
+}

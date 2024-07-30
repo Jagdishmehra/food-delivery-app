@@ -1,0 +1,59 @@
+import React, { useEffect, useState } from "react"
+import Rescard from "./Restaurants-card";
+import Shimmer from "../utilities/shimmer";
+
+
+
+const Body=()=>{
+
+    const [listofrestaurants, setlistofrestaurants]= useState([]); 
+    //usestate takes two arguments as array for better data sync and updation.
+    
+    useEffect(()=> {
+        fetchdata()
+    },[])
+    
+    
+        const fetchdata=async ()=>{
+            const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        
+    
+            //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);  for console check of res-data.
+            const json= await data.json();
+            setlistofrestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        }
+    
+    
+        //shimmer card
+    
+        if(listofrestaurants.length===0){
+            return <Shimmer/>
+        };
+        
+    // we can write shimmer loading code in return also using conditional statements.
+        return (
+            <div className="body">
+    <div className="top-btn">
+        <button onClick={()=>{
+    
+            const filterd=listofrestaurants.filter((res=>
+                res.info.avgRating>4.1
+            ));
+            // setlistofrestaurant is used for fetching updated values.
+                setlistofrestaurants(filterd);
+        }}>Top Rated Restaurants</button>
+    </div>
+    <div className="res-container">
+        {    // we looped over data fetched from api using map and simultaneously passed a function to extract values.
+            listofrestaurants.map((restaurant)=>(<Rescard key={restaurant.info.id} 
+                resData={restaurant}/>
+            ))
+        } 
+    </div>
+            </div>
+    
+           
+        );
+    }
+
+    export default Body;
