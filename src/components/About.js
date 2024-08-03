@@ -1,6 +1,4 @@
 
-
-
 const About=()=>{
     return(
         <div>

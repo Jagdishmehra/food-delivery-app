@@ -58,12 +58,12 @@ padding: 10px;
   margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    cursor: pointer;
+    
     
 }
 .res-card:hover{
     border: solid black;
-
+    cursor: pointer;
 }
 
 .res-logo{

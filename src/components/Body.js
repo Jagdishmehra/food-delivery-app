@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import Rescard from "./Restaurants-card";
 import Shimmer from "../utilities/shimmer";
-
-
+import useOnlineStatus from "../utilities/useOnlineStatus";
 
 const Body=()=>{
 
@@ -26,12 +25,18 @@ const Body=()=>{
             setsearchtext(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         }
     
-    
+        const onlinestatus=useOnlineStatus();
+        if(onlinestatus===false)
+        {
+            return (<h1>Oops, looks like you are offline...</h1>)
+        }
         //shimmer card
     
         if(listofrestaurants.length===0){
             return <Shimmer/>
         };
+
+        
         
     // we can write shimmer loading code in return also using conditional statements.
         return (
