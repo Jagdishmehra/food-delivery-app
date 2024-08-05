@@ -32,7 +32,7 @@ const Body=()=>{
         }
         //shimmer card
     
-        if(listofrestaurants.length===0){
+        if(searchtext.length===0){
             return <Shimmer/>
         };
 
@@ -41,27 +41,27 @@ const Body=()=>{
     // we can write shimmer loading code in return also using conditional statements.
         return (
             <div className="body">
-    <div className="top-btn">
-        <button onClick={()=>{
-            const filterd=listofrestaurants.filter((res)=>res.info.avgRating >4.0
+    <div className="m-4 p-2 flex  justify-end">
+        {/* <button className="hover:text-rose-600 px-1 py-0 rounded-md text-purple-600" onClick={()=>{
+            const filterd=listofrestaurants.filter((restaurants)=>restaurants.info.avgRating >4.0
             );
             // setlistofrestaurant is used for fetching updated values.
                 setlistofrestaurants(filterd);
-        }}>Top Rated Restaurants</button>
+        }}>Top Rated Restaurants</button> */}
         <div>
-            <input type="text" className="search-btn"  value={sea} onChange={(e)=>{
+            <input type="text" className="border border-solid border-black-500 rounded-lg mx-1 mt-px"  value={sea} onChange={(e)=>{
                     setSea(e.target.value)
                 }
             }/>
-            <button onClick={()=>{
+            <button className="hover:text-rose-600 px-1 rounded-lg text-purple-600 border-slate-500"onClick={()=>{
                 const filterdrestaurants=listofrestaurants.filter((res)=>res.info.name.toLowerCase().includes(sea.toLowerCase()));
                 setsearchtext(filterdrestaurants)
             }}  >
-               search
+               Search
             </button>
         </div>
     </div>
-    <div className="res-container">
+    <div className="res-container flex flex-wrap m-2 p-4 ">
         {    // we looped over data fetched from api using map and simultaneously passed a function to extract values.
             searchtext.map((restaurant)=>(<Rescard key={restaurant.info.id} 
                 resData={restaurant}/>
