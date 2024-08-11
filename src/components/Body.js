@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Rescard from "./Restaurants-card";
 import Shimmer from "../utilities/shimmer";
 import useOnlineStatus from "../utilities/useOnlineStatus";
+import { Link } from "react-router-dom";
 
 const Body=()=>{
 
@@ -21,8 +22,8 @@ const Body=()=>{
     
             //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);  for console check of res-data.
             const json= await data.json();
-            setlistofrestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setsearchtext(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setlistofrestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setsearchtext(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         }
     
         const onlinestatus=useOnlineStatus();
@@ -30,16 +31,9 @@ const Body=()=>{
         {
             return (<h1>Oops, looks like you are offline...</h1>)
         }
-        //shimmer card
-    
-        if(searchtext.length===0){
-            return <Shimmer/>
-        };
-
-        
-        
+        //shimmer card     
     // we can write shimmer loading code in return also using conditional statements.
-        return (
+        return searchtext.length===0 ?<Shimmer/>: (
             <div className="body">
     <div className="m-4 p-2 flex  justify-end">
         {/* <button className="hover:text-rose-600 px-1 py-0 rounded-md text-purple-600" onClick={()=>{
@@ -53,19 +47,19 @@ const Body=()=>{
                     setSea(e.target.value)
                 }
             }/>
-            <button className="hover:text-rose-600 px-1 rounded-lg text-purple-600 border-slate-500"onClick={()=>{
+            <button className="hover:text-rose-600 px-1 rounded-lg text-purple-600"onClick={()=>{
                 const filterdrestaurants=listofrestaurants.filter((res)=>res.info.name.toLowerCase().includes(sea.toLowerCase()));
                 setsearchtext(filterdrestaurants)
             }}  >
-               Search
+               🔍Search
             </button>
         </div>
     </div>
     <div className="res-container flex flex-wrap m-2 p-4 ">
         {    // we looped over data fetched from api using map and simultaneously passed a function to extract values.
-            searchtext.map((restaurant)=>(<Rescard key={restaurant.info.id} 
-                resData={restaurant}/>
-            ))
+            searchtext.map((restaurant)=>(<Link key={restaurant.info.id} to={"/restaurants/"+ restaurant.info.id}><Rescard 
+                resData={restaurant}/></Link>
+            ))//id should always be on parent element
         } 
     </div>
             </div>

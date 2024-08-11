@@ -2,22 +2,32 @@
 // shimmer cards for better UX.
 const Shimmer=()=>{
     return (
-        <div className="shimmer-container">
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-                <div className="shimmer-card"></div>
-            </div>
+        <div className="flex flex-wrap m-12">
+            <div className=" m-10 p-[8rem] bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+             
+        </div>
+        <div className="m-10 p-[8rem] bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+           
+        </div>
+        <div className=" m-10 p-[8rem]  bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+             
+        </div>
+        <div className=" m-10 p-[8rem]  bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+             
+        </div>
+        <div className=" m-10 p-[8rem]  bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+             
+        </div>
+        <div className=" m-10 p-[8rem]  bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+            
+        </div>
+        <div className=" m-10 p-[8rem]  bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+             
+        </div>
+        <div className=" m-10 p-[8rem]  bg-slate-100  rounded-xl shadow-xl cursor-pointer">
+             
+        </div>
+        </div>
     )
 };
 

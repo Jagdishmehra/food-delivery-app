@@ -6,14 +6,19 @@ import { createBrowserRouter, Outlet, RouterProvider, Route, Routes } from "reac
 import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import { children } from "react";
+import RestaurantMenu from "./src/components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appstore from "./src/utilities/store";
+import Cart from "./src/components/Cart";
 
 const Applayout=()=>{
     return(
+   <Provider store={appstore} >
     <div>
 <Header></Header>
 <Outlet/>
     </div>
-
+    </Provider>
 );
 };
 
@@ -29,6 +34,12 @@ const approuter=createBrowserRouter([
         },
         {
             path:"/contact", element:<Contact/>,
+        },
+        {
+            path:"/cart", element:<Cart/>,
+        },
+        {
+            path:"/restaurants/:resId", element:<RestaurantMenu/>,
         },
     ]
 }, 
