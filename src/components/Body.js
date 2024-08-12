@@ -29,7 +29,11 @@ const Body=()=>{
         const onlinestatus=useOnlineStatus();
         if(onlinestatus===false)
         {
-            return (<h1>Oops, looks like you are offline...</h1>)
+            return (<h1 className="text-center text-2xl font-thin m-44">
+                😨Oops, looks like you are offline...
+                <p className="m-4 text-sm">ERR_INTERNET_DISCONNECTED</p>
+                
+                </h1>)
         }
         //shimmer card     
     // we can write shimmer loading code in return also using conditional statements.
