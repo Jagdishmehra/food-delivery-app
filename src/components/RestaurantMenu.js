@@ -14,7 +14,7 @@ useEffect(()=>{
 },[]);
 //fetch menu is the which will pass the api data to use effect using async await.
 const fetchMenu= async()=>{
-const data=await fetch("https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.65420&lng=77.23730&restaurantId=".concat(resId));
+const data=await fetch("https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.65420&lng=77.23730&restaurantId=".concat(resId));
 
 
 //converting data to json
